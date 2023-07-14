@@ -1,0 +1,30 @@
+{
+  "name": "tiendad1",
+  "version": "1.0.0",
+  "description": "Tienda virtual para venta de productos estelares",
+  "main": "server.js",
+  "scripts": {
+    "start" : "node/back/server.js",
+    "dev":  "SET NODE_ENV=DEVELOPMENT& nodemon back/server",
+    "prod" : "SET NODE_ENV=PRODUCTION& nodemon back/server"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jivpacheco/TiendaD1.git"
+  },
+  "author": "jivpacheco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jivpacheco/TiendaD1/issues"
+  },
+  "homepage": "https://github.com/jivpacheco/TiendaD1#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
