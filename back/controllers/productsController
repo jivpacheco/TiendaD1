@@ -1,16 +1,40 @@
 const producto = require('../models/productos')
 
 
-exports.getProducts = (req, res, next) => {
+// consulta de todos los productos
+exports.getProducts = async (req, res, next) => {
 
+    const productos = await producto.find();
     res.status(200).json({
         success: true,
-        message: "En esta ruta podra ver todos sus productos"
+        Cantidad: productos.length,
+        productos
     })
 
 }
 
-exports.newProducto = async(req, res, nex) =>{
+// consultar un producto por id
+
+exports.getProductById = async (req, res, next) => {
+
+    const product = await producto.findById(req.params.id);
+
+    if (!product) {
+        return res.status(404).json({
+            success: false,
+            message: "Producto no Encontrado"
+        })
+    }
+    res.status(200).json({
+        success: true,
+        message: "Aqui encontrala la informacion de su producto..",
+        product
+    })
+}
+
+//crear un producto
+
+exports.newProducto = async (req, res, nex) => {
     const product = await producto.create(req.body);
 
     res.status(201).json({
