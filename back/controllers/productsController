@@ -42,3 +42,34 @@ exports.newProducto = async (req, res, nex) => {
         product
     })
 }
+
+//actualizar un producto - update
+
+exports.updateProduct = async(req, res, next) =>{
+
+    let product = await producto.findById(req.params.id);
+
+    if (!product) {
+        return res.status(404).json({
+            success: false,
+            message: "Producto no Encontrado"
+        })
+    }
+
+    product = await producto.findByIdAndUpdate(req.params.id, req.body, {
+
+        new: true,
+        runValidators: true
+
+    });
+
+    res.status(200).json({
+        success: true,
+        message: "Producto Actualizado con Exito..",
+        product
+    })
+
+
+}
+
+
