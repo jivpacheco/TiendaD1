@@ -1,7 +1,16 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import Metadata from './layout/Metadata'
+import {useDispatch} from 'react-redux';
+import { getProducts } from '../actions/productActions';
 
 const Home = () => {
+
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(getProducts());
+    },[dispatch])
+
+    
     return (
         <Fragment>
             <Metadata title="¡Si lo quieres lo Tienes!"></Metadata>
