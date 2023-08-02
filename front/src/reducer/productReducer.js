@@ -26,7 +26,7 @@ export const productsReducer = (state = {products: []}, action) =>{
             }
 
         default:
-            return state
+            return state;
     
     }
 

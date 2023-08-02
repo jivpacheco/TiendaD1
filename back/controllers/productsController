@@ -7,7 +7,7 @@ exports.getProducts = async (req, res, next) => {
     const productos = await producto.find();
     res.status(200).json({
         success: true,
-        Cantidad: productos.length,
+        cantidad: productos.length,
         productos
     })
 
