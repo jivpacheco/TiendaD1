@@ -1,12 +1,12 @@
 import { ALL_PRODUCTS_REQUEST, ALL_PRODUCTS_SUCCESS, ALL_PRODUCTS_FAIL, CLEAR_ERRORS } from "../constants/productConstants";
 
-export const productsReducer = (state = {products: []}, action) =>{
+export const productsReducer = (state = {productos: []}, action) =>{
 
     switch(action.type){
         case ALL_PRODUCTS_REQUEST:
             return{
                 loading: true,
-                products: []
+                productos: []
             }
         case ALL_PRODUCTS_SUCCESS: // con base a los tipoos que return del back
             return{
