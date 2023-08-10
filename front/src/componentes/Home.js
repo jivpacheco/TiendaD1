@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
-import Metadata from './layout/Metadata'
+import MetaData from './layout/Metadata'
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../actions/productActions';
 import { Link } from 'react-router-dom';
@@ -25,7 +25,7 @@ const Home = () => {
         <Fragment>
             {loading ? <i class='fa fa-spinner fa-spin fa-3x fa-fw'></i>: (
                 <Fragment>
-                    <Metadata title="¡Si lo quieres lo Tienes!"></Metadata>
+                    <MetaData title="¡Si lo quieres lo Tienes!"></MetaData>
                     <h1 id='encabezado_productos'>Ultimos Productos</h1>
 
                     <section id='productos' className='container mt-5'>
