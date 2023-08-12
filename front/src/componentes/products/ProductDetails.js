@@ -29,7 +29,7 @@
 //               </Fragment>)}
 
 
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import MetaData from '../layout/Metadata'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearErrors, getProductDetails } from '../../actions/productActions'
@@ -43,6 +43,8 @@ const ProductDetails = () => {
   const { id } = useParams();
   const alert = useAlert();
   const dispatch = useDispatch();
+  const [quantity, setQuantity] =useState(1);
+
 
   useEffect(() => {
     dispatch(getProductDetails(id));
@@ -53,6 +55,34 @@ const ProductDetails = () => {
 
     }
   }, [dispatch, alert, error, id])
+
+// Funcion para Incrementar
+  const increaseQty = () => {
+    const contador = document.querySelector('.count')
+
+    if (contador.valueAsNumber >= product.inventario) {
+      return;
+    }
+    const qty = contador.valueAsNumber + 1;
+    setQuantity(qty);
+  }
+  // Funcion para Disminuir
+  const decreaseQty = () => {
+    const contador = document.querySelector('.count')
+
+    if (contador.valueAsNumber <= 1) {
+      return;
+    }
+    const qty = contador.valueAsNumber - 1;
+    setQuantity(qty);
+  }
+
+
+
+
+
+
+
 
   return (
     <Fragment>
@@ -83,9 +113,9 @@ const ProductDetails = () => {
               <hr />
               <p id='precio_producto'>${product.precio}</p>
               <div className='stockCounter d-inline'>
-                <span className='btn btn-danger minus'>-</span>
-                <input type='number' className='form-control count d-inline' readOnly />
-                <span className='btn btn-primary plus'>+</span>
+                <span className='btn btn-danger minus' onClick={decreaseQty}>-</span>
+                <input type='number' className='form-control count d-inline' value={quantity} readOnly/>
+                <span className='btn btn-primary plus' onClick={increaseQty}>+</span>
               </div>
               <button type='button' id='carrito_btn' className='btn btn-primary d-inline ml-4' disable={product.inventario === 0}>Agregar al Carrito</button>
               <hr />
@@ -97,7 +127,7 @@ const ProductDetails = () => {
               <p id='vendedor'> Vendido por: <strong>{product.vendedor}</strong></p>
               <button id='btn_review' type='button' className='btn btn-primary mt-4' data-toggle='modal' data-target='#ratingModal'>
                 Deja tu Opinion</button>
-                <div className='alert alert-danger mt-5' type='alert'> Inicia Sesion para dejar su Review</div>
+              <div className='alert alert-danger mt-5' type='alert'> Inicia Sesion para dejar su Review</div>
 
               {/* Mensaje emergente para dejar opinion y calificaciones */}
 
@@ -105,31 +135,31 @@ const ProductDetails = () => {
                 <div className='rating w-50'>
                   <div className='modal fade' id='ratingModal' tabIndex='-1' role='dialog'
                     aria-labelledby='ratingModalLabel' aria-hidden='true'>
-                      <div className='modal-dialog' role='document'>
-                        <div className='modal-content'>
-                          <div className='modal-header'>
-                            <h5 className='modal-title' id='ratingModalLabel'>Enviar Review</h5>
-                            <button type='button' className='close' data-dismiss='modal' aria-label='close'>
-                              <span aria-hidden='true'>&times;</span>
-                            </button>
-                          </div>
-                          <div className='modal-body'>
-                            <ul className='stars'>
-                              <li className='star'><i className='fa fa-star'></i></li>
-                              <li className='star'><i className='fa fa-star'></i></li>
-                              <li className='star'><i className='fa fa-star'></i></li>
-                              <li className='star'><i className='fa fa-star'></i></li>
-                              <li className='star'><i className='fa fa-star'></i></li>
-                            </ul>
-                            <textarea name='review' id='review' className='form-control mt-3'></textarea>
-                            <button className='btn my-3 float-right review-btn px-4 text-white' data-dismiss='modal' aria-label='close'>
-                              Enviar
-                            </button>
-                          </div>
-
+                    <div className='modal-dialog' role='document'>
+                      <div className='modal-content'>
+                        <div className='modal-header'>
+                          <h5 className='modal-title' id='ratingModalLabel'>Enviar Review</h5>
+                          <button type='button' className='close' data-dismiss='modal' aria-label='close'>
+                            <span aria-hidden='true'>&times;</span>
+                          </button>
+                        </div>
+                        <div className='modal-body'>
+                          <ul className='stars'>
+                            <li className='star'><i className='fa fa-star'></i></li>
+                            <li className='star'><i className='fa fa-star'></i></li>
+                            <li className='star'><i className='fa fa-star'></i></li>
+                            <li className='star'><i className='fa fa-star'></i></li>
+                            <li className='star'><i className='fa fa-star'></i></li>
+                          </ul>
+                          <textarea name='review' id='review' className='form-control mt-3'></textarea>
+                          <button className='btn my-3 float-right review-btn px-4 text-white' data-dismiss='modal' aria-label='close'>
+                            Enviar
+                          </button>
                         </div>
 
                       </div>
+
+                    </div>
                   </div>
                 </div>
 
