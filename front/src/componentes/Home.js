@@ -14,7 +14,7 @@ const Home = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         if (error) {
-           return alert.error(error);
+            return alert.error(error);
         }
 
         dispatch(getProducts());
@@ -23,7 +23,7 @@ const Home = () => {
 
     return (
         <Fragment>
-            {loading ? <i class='fa fa-spinner fa-spin fa-3x fa-fw'></i>: (
+            {loading ? <i class='fa fa-spinner fa-spin fa-3x fa-fw'></i> : (
                 <Fragment>
                     <MetaData title="¡Si lo quieres lo Tienes!"></MetaData>
                     <h1 id='encabezado_productos'>Ultimos Productos</h1>
