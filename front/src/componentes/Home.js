@@ -18,7 +18,7 @@ const Home = () => {
         }
 
         dispatch(getProducts());
-        alert.success('todo OK')
+        // alert.success('todo OK')
     }, [dispatch])
 
     return (

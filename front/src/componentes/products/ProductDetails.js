@@ -1,34 +1,3 @@
-// import React, { Fragment, useEffect } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
-// import MetaData from '../layout/Metadata'
-// import { useParams } from 'react-router-dom'
-// import { getProductDetails, clearErrors} from '../../actions/productActions'
-// import { useAlert} from 'react-alert'
-
-// export const ProductDetails = () => {
-//   const {loading, product, error} = useSelector(state =>state.productDetails)
-//   const {id} =useParams();
-//   const dispatch= useDispatch();
-//   const alert= useAlert();
-//   useEffect(() => {dispatch(getProductDetails(id))
-//     if (error){alert.error(error);
-//       dispatch(clearErrors())}}, [dispatch, alert, error, id])
-
-//       return (
-//       <Fragment>
-//         <MetaData title="Agility Alimento Blando Perros"></MetaData>
-//         <div className='row d-flex justify-content-around'>
-//           <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
-//             <img src="../../images/productos/agility_blando_perros.png" alt="Imagen_producto" height="450" width="450"></img>
-//             </div>
-//             <div className='col-12 col-lg-5 mt-5'>
-//               <h3>Alimento humedo Agility para Perros</h3>
-//               <p id="product_id">Product #3253252</p>
-//               </div>
-//               </div>
-//               </Fragment>)}
-
-
 import React, { Fragment, useEffect, useState } from 'react'
 import MetaData from '../layout/Metadata'
 import { useDispatch, useSelector } from 'react-redux'
@@ -48,7 +17,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(getProductDetails(id));
-    alert.success('Producto OK')
+    // alert.success('Producto OK')
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
@@ -76,13 +45,6 @@ const ProductDetails = () => {
     const qty = contador.valueAsNumber - 1;
     setQuantity(qty);
   }
-
-
-
-
-
-
-
 
   return (
     <Fragment>

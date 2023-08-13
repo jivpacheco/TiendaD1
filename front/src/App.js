@@ -4,12 +4,7 @@ import Header from './componentes/layout/Header';
 import Footer from './componentes/layout/Footer';
 import Home from './componentes/Home';
 import ProductDetails from './componentes/products/ProductDetails';
-// import { BrowserRouter as Router } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import Routes from 'react-router-dom';
-// import Route from 'react-router-dom';
-
-
 
 function App() {
   return (
