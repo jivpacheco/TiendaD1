@@ -5,7 +5,7 @@ import Footer from './componentes/layout/Footer';
 import Home from './componentes/Home';
 import ProductDetails from './componentes/products/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Dashboard from './componentes/admin/dashboard';
+import Dashboard from './componentes/admin/Dashboard';
 
 function App() {
   return (

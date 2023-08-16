@@ -26,15 +26,16 @@ const Header = () => {
                     <div className='ml-4 dropdown d-inline'>
                         <Link to='#!' className='btn dropdown-toggle text-white mr-4' type='button' id='dropDownMenu'
                             data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+
                             <span>Panel de Control</span>
-                            <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
-                                <Link className='dropdown-item' to='/'>Admin de Productos</Link>
-                                <Link className='dropdown-item' to='/'>Pedidos</Link> 
-                                <Link className='dropdown-item' to='/'>Mi cuenta</Link> 
-                                <Link className='dropdown-item' to='/'>Cerrar Sesión</Link> 
-                            </div>
-                            
                         </Link>
+                        <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
+                            <Link className='dropdown-item' to="/admin/dashboard">Admin de Productos</Link>
+                            <Link className='dropdown-item' to='/'>Pedidos</Link>
+                            <Link className='dropdown-item' to='/'>Mi cuenta</Link>
+                            <Link className='dropdown-item' to='/'>Cerrar Sesión</Link>
+                        </div>
+
                     </div>
                     <i className='fa fa-shopping-cart fa-2x text-white ' aria-hidden='true'></i>
                     {/* <span id='cart' className='ml-3'>Carrito</span> */}
