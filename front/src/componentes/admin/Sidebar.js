@@ -7,9 +7,9 @@ const Sidebar = () => {
             <nav id='sidebar'>
                 <ul>
                     <li>
-                        <Link to='/'><i className='fa fa-tachometer'>Administración</i></Link>
+                        <Link to='/admin/dashboard'><i className='fa fa-tachometer'>Administración</i></Link>
                     </li>
-                    {/* botones de producto */}
+                    {/* botones de producto  */}
                     <li>
                         <a href='#productSubmenu' data-toggle='collapse' aria-expanded='false' className='dropdown-toggle'>
                             <i className='fa fa-product-hunt'></i>Productos</a>
