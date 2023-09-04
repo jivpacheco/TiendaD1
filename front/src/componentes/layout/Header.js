@@ -30,16 +30,18 @@ const Header = () => {
                             <span>Panel de Control</span>
                         </Link>
                         <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
-                            <Link className='dropdown-item' to="/admin/dashboard">Admin de Productos</Link>
+                            <Link className='dropdown-item' to="/dashboard">Admin de Productos</Link>
                             <Link className='dropdown-item' to='/'>Pedidos</Link>
                             <Link className='dropdown-item' to='/'>Mi cuenta</Link>
                             <Link className='dropdown-item' to='/'>Cerrar Sesión</Link>
                         </div>
 
                     </div>
+                    <Link to='/'>
                     <i className='fa fa-shopping-cart fa-2x text-white ' aria-hidden='true'></i>
                     {/* <span id='cart' className='ml-3'>Carrito</span> */}
                     <span className='ml-1' id='cart_count'>2</span>
+                    </Link>
 
                 </div>
             </nav>
