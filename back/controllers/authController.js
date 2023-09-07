@@ -28,3 +28,38 @@ exports.registroUsuario = catchAsyncErrors(async(req, res, next) =>{
     })
     
 })
+
+exports.loginUser = catchAsyncErrors(async(req, res, next) =>{
+
+    const {email, password} = req.body;
+    //revisamos campos estan completos+
+    if (!email || !password) {
+        return next(new ErrorHandler('Por favor ingrese Email y Contraseña',400))
+    }
+
+    //Buscar el usuario en nuestra base de datos
+    const user = await User.findOne({email}).select('+password')
+
+    if (!user) {
+        return next(new ErrorHandler('Email o Contraseñas Invalidos!!!',401))
+        
+    }
+
+    //Verificar que el passwor ingresado coincida con la del usuario
+    const passwordOK = await user.compararPass(password);
+
+    if (!passwordOK) {
+        return next(new ErrorHandler('Contraseña Invalida',401))
+    }
+    const token = user.getJwtToken();
+
+
+    res.status(201).json({
+        success: true,
+        token,
+        user
+    })
+
+
+
+})
