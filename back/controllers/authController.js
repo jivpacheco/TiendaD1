@@ -19,9 +19,9 @@ exports.registroUsuario = catchAsyncErrors(async (req, res, next) => {
         }
     })
 
-    const token = user.getJwtToken();
-
     tokenEnviado(user, 201, res)
+
+    // const token = user.getJwtToken();
     // res.status(201).json({
     //     success: true,
     //     token,
