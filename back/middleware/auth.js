@@ -16,5 +16,14 @@ exports.isAuthenticatedUSer = catchAsyncErrors(async (req, res, next) => {
     //como comparando las contraseñas pero en este caso decodifica el jwt
     req.user = await User.findById(decoder.id)
     next()
-
 })
+
+//Capturar el rol del usuario
+exports.authorizeRoles = (...roles) =>{
+    return (req, res, next) =>{
+        if (roles.includes(req.user.role)) {
+            return next(new errorHandler(`Role (${req.user.role}) No esta autorizado para entrar a esta area`),402)
+        }
+        next()
+    }
+}
