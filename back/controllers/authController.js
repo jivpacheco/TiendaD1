@@ -63,3 +63,15 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     // })
 
 })
+
+//Metodo para cerrar sesion
+exports.logOut = catchAsyncErrors( async(req, res, next) =>{
+    res.cookie('token',null, {
+        expires: new Date(Date.now()),
+        httpOnly: true
+    })
+    res.status(200).json({
+        success: true,
+        message: 'Sesion Cerrada con Exito'
+    })
+})

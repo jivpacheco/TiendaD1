@@ -86,17 +86,16 @@ const productosSchema = mongoose.Schema({
             }
         }
     ],
-    // user:{
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'User',
-    //     required: true
-    // },
+    user:{
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
     
     fechaCreacion: {
         type: Date,
         default: Date.now
     }
-
 }) 
 
 module.exports = mongoose.model('productos',productosSchema);
