@@ -8,7 +8,7 @@ const { isAuthenticatedUSer, authorizeRoles } = require('../middleware/auth');
 
 const router = express.Router();
 
-router.route('/productos').get(isAuthenticatedUSer, authorizeRoles('admin'), getProducts);
+router.route('/productos').get(isAuthenticatedUSer, authorizeRoles('admin','user'), getProducts);
 router.route('/producto/:id').get(getProductById)
 router.route('/producto/nuevo').post(isAuthenticatedUSer, authorizeRoles('admin'), newProducto)
 router.route('/producto/:id').put(isAuthenticatedUSer, authorizeRoles('admin'), updateProduct)
